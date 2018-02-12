@@ -1,0 +1,21 @@
+
+  <!-- content start -->
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">账户管理</strong></div>
+    </div>
+
+    <hr/>
+    <div data-am-widget="tabs" class="am-tabs am-tabs-d2" id ="tabwrap">
+      <ul class="am-tabs-nav am-cf am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">          
+          <li><a href="" onclick="getdayUser()"class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>今日新增用户数<br/><span id="user_day"></span></a></li>
+          <li><a href='' onclick="getweekUser()" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>7天内新增用户数<br/><span id="user_week"></span></a></li>
+      		<li><a href='' onclick="getmonthUser()" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>30天内新增用户数<br/><span id="user_month"></span></a></li>
+      </ul>
+      <div id = "chart" class="am-tabs-bd chart">
+      </div>
+  </div>
+  
+  <!-- content end -->
+
+
+

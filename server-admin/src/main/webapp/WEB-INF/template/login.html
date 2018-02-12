@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="login" xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+  <meta charset="UTF-8"/>
+  <title>Login |0元购</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" th:href="@{${Host}+'/assets/css/amazeui.min.css'}"/>
+  <style>
+    .header {
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 200%;
+      color: #333;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+<div class="header">
+  <div class="am-g">
+    <h1>管理员登陆</h1>
+  </div>
+  <hr/>
+</div>
+<div class="am-g">
+  <div class="am-u-lg-6 am-u-md-8 am-u-sm-centered" ng-controller="loginController" >
+    <br/>
+    <br/>
+
+    <form  id = "login_form" class="am-form" >
+      <label for="username">账号:</label>
+      <input type="text" name="username" id="username" placeholder="请输入账号"  ng-model="username" />
+      <br/>
+      <label for="password">密码:</label>
+      <input type="password" name="password" id="password" placeholder="请输入密码" ng-model="password"  />
+      <br/>
+      <label for="kaptcha">验证码:</label>
+     
+      <input type="text" name="kaptcha" id="kaptcha" style="width:60%;" placeholder="请输入验证码" ng-model="kaptcha"/>
+      <img class="am-fr" style="margin-top: -45px;" src="" alt="验证码" th:src="@{${Host}+'/account/captcha.jpg'}"/>
+      
+      <br/>
+      <br/>
+      <div class="am-cf">
+        <input type="submit" ng-click="login()" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-btn-block"/>
+       
+      </div>
+    </form>
+    <hr/>
+   
+  </div>
+</div>
+<script th:src="@{${Host}+'/assets/js/jquery.min.js'}"  type="text/javascript" charset="utf-8"></script>
+<script th:src="@{${Host}+'/assets/js/angular.min.js'}" type="text/javascript" charset="utf-8"></script>
+<script th:src="@{${Host}+'/assets/js/login/login.js'}" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品详情</strong></div>
+        <button  type="button" class="am-btn am-btn-primary am-fr" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 600, height: 250}">
+            添加活动
+        </button>
+
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+            <div class="am-modal-dialog">
+                <div class="am-modal-hd">添加活动
+                    <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                </div>
+                <div class="am-modal-bd">
+                    <div class="am-g">
+                    <form class="am-form ">
+                    <div class="am-g am-margin-top">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    活动金币
+                    </div>
+                    <div class="am-u-sm-12 am-u-md-8 am-u-end col-end">
+                    <input type="text" class="am-input-sm" ng-model ="activity_price" >
+                    </div>
+
+                    </div>
+
+                    <div class="am-g am-margin-top">
+                    <div class="am-u-sm-4 am-u-md-2 am-text-right">
+                    开奖时间
+                    </div>
+                    <div class="am-u-sm-4 am-u-md-2 am-u-end col-end">
+                    <input type="text" class="am-input-sm " ng-model="hour">
+                        时</div>
+
+                        <div class="am-u-sm-4 am-u-md-2 am-u-end col-end">
+                            <input type="text" class="am-input-sm" ng-model="min">
+                            分
+                        </div>
+                        <div class="am-u-sm-4 am-u-md-2 am-u-end col-end">
+                            <input type="text" class="am-input-sm" ng-model="second">
+                            秒
+                        </div>
+
+                    </div>
+                    </form>
+                    <div class="am-margin am-text-center">
+                    <button type="button" class="am-btn am-btn-primary am-btn-xs" ng-click="activity_upload()">提交保存</button>
+                    <button type="button" class="am-btn am-btn-primary am-btn-xs" ng-click="activity_reset()">放弃保存</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr/>
+
+<div class="am-g">
+        
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              商品名:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+        {{name}}
+            </div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              商品价格:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              {{price}}
+            </div>
+          </div>
+ <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              商品标签:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <span  class="tags" ng-repeat = 'tag in property'>{{ tag }}</span>
+            </div>
+          </div>
+          <div class="am-g am-margin-top-sm">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              商品描述:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end">
+               <button type="button" class="am-btn am-btn-primary am-btn-xs" ng-click="getdetail()">详情</button>
+            </div>
+          </div>
+
+          <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              缩略图:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              <img  class="imagelist" ng-src="{{thumbnail_url}}" alt="缩略图" />
+            </div>
+            </div>
+ <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              描述图:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+            	<div  class="imagegallery" ng-repeat = 'desc_img_url in desc_img_urls'>
+            		<img class="imagelist" ng-src="{{desc_img_url}}" alt="描述图"/>
+            	</div>
+              
+            </div>
+            </div>
+
+    <div class="am-g am-margin-top" ng-if="banner_url">
+        <div class="am-u-sm-4 am-u-md-2 am-text-right">
+            广告图:
+        </div>
+        <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+            <div  class="imagegallery">
+                <img class="imagelist" ng-src="{{banner_url}}" alt="广告图"/>
+            </div>
+
+        </div>
+    </div>
+        <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              发布活动数目:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              {{ activity_num }}
+            </div>
+            </div>
+            <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              商品显示数目:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              {{view_num}}
+            </div>
+            </div>
+            <div class="am-g am-margin-top">
+            <div class="am-u-sm-4 am-u-md-2 am-text-right">
+              商品晒单数目:
+            </div>
+            <div class="am-u-sm-8 am-u-md-4 am-u-end col-end">
+              {{reply_num}}
+            </div>
+            </div>
+      </div>
+   
+   
+

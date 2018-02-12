@@ -1,0 +1,107 @@
+
+  <!-- content start -->
+    <div class="am-cf am-padding" >
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品管理</strong></div>
+    </div>
+
+    <hr/>
+       <div class="am-g">
+      <div class="am-u-sm-12 am-u-md-6">
+        <div class="am-btn-toolbar">
+          <div class="am-btn-group am-btn-group-xs">
+            <a href="#/admin-addgood"><button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span><span>新增</span></button></a>
+          </div>
+        </div>
+      </div>
+     <div class="am-u-sm-12 am-u-md-3">
+        <div class="am-input-group am-input-group-sm">
+          <input type="text" class="am-form-field" ng-model = "keyword">
+          <span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button" ng-click="searchgood()">搜索</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <form class="am-form">
+          <table class="am-table am-table-striped am-table-hover table-main">
+            <thead>
+              <tr>
+                <th class="table-id">ID</th><th class="table-title">商品名</th><th class="table-img">商品缩略图</th><th class="table-activity am-hide-sm-only">活动数量</th><th >商品类别</th><th class="table-set">操作</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="good in goods">
+              <td >{{good.item_id}}</td>
+              <td>{{good.item_name}}</td>
+              <td> <img style="width:50px;height: 50px;"ng-src="{{good.item_thumbnail_url}}" alt="商品缩略图" /> </td>
+              <td class="am-hide-sm-only">{{good.activities_num}}</td>
+              <td> {{good.type}}</td>
+              <td>
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                  	<a href="#/admin-gooddetail/{{good.item_id}}"><button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-file-o"></span> 查看</button></a>
+                    <a href="#/admin-editgood/{{good.item_id}}"><button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span>编辑</button></a>
+                    <button class="am-btn am-btn-default am-btn-xs am-text-danger " ng-click="deletegood(good.item_id)"><span class="am-icon-trash-o"></span> 删除</button>
+                     <button class="am-btn am-btn-default am-btn-xs am-text-secondary "  ng-click="init()" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 400, height: 250}"><span class="am-icon-toggle-on"></span>设为热销商品</button>
+
+
+                      <!--热销商品设置-->
+                      <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+                          <div class="am-modal-dialog">
+                              <div class="am-modal-hd">设置热销商品
+                                  <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+                              </div>
+                              <div class="am-modal-bd">
+                                  <div class="am-g">
+                                      <form class="am-form ">
+                                          <div class="am-g am-margin-top">
+                                              <div class="am-u-sm-8 am-u-md-4 am-text-right" style="font-size:16px">
+                                                  封面图片:
+                                              </div>
+                                              <div class="am-u-sm-6 am-u-md-4 am-u-end col-end">
+                                                  <input type="button" id="bannerupload" value="图片上传" />
+                                                  <div class="imagegallery" ng-repeat="url in banner_url">
+                                                      <img  class="imagelist"  ng-src="{{url}}" alt="缩略图" />
+                                                      <div class="delete_img" ng-click="deletebannerImg(url)"></div></div>
+                                              </div>
+                                          </div>
+                                      </form>
+
+                                      <div class="am-margin am-text-center">
+                                          <button type="button" style="background-color: #0C79B1;" class="am-btn am-btn-primary am-btn-xs" ng-click="sethotgood(good.item_id)">提交保存</button>
+                                          <button type="button" style="background-color: #0C79B1;" class="am-btn am-btn-primary am-btn-xs" ng-click="hotgood_reset()">放弃保存</button>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+          <div class="am-cf" ng-model="page">
+  第{{page}}页
+  <div class="am-fr">
+    <ul class="am-pagination">
+      <li id = "prepage" ><a href="#" ng-click="getPrePage()">«</a></li>
+      <li id = "nextpage"><a href="#" ng-click="getNextPage()">»</a></li>
+    </ul>
+  </div>
+</div>
+          <hr />
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- content end -->
+

@@ -1,0 +1,61 @@
+
+				<div class="am-cf am-padding">
+					<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户反馈</strong></div>
+				</div>
+				<hr />
+
+				<div class="am-panel-bd am-collapse am-in">
+					<div> 反馈内容</div>
+<hr />
+					<div class="admin-task-bd">
+						{{feedback.content}}
+					</div>
+					<div>
+						<ul class="am-avg-sm-2 am-avg-md-4 am-avg-lg-6 am-margin gallery-list">
+							<li ng-repeat="img in feedback.imgs">
+								<img  ng-src="{{img}}" alt="" />
+							</li>
+						</ul>
+					</div>
+					<div> 反馈状态</div>
+					<hr />
+					<div class="am-btn-toolbar">
+
+						<div >
+
+                                <label for="option1" class="am-btn am-btn-default am-btn-xs">
+								<input type="radio" name="status" id="option1"  value="0" ng-model="status" ng-check > 未处理
+                                </label>
+
+
+                                <label for="option2" class="am-btn am-btn-default am-btn-xs">
+								<input type="radio" name="status" id="option2" value="1" ng-model="status"  > 处理中
+							</label>
+
+                                <label for="option3" class="am-btn am-btn-default am-btn-xs">
+								<input type="radio" name="status" id="option3" value="2" ng-model="status" > 处理完成
+
+                                </label>
+
+                                <label for="option4" class="am-btn am-btn-default am-btn-xs">
+								<input type="radio" name="status" id="option4" value="3" ng-model="status"> 忽略
+                            </label>
+
+
+
+						</div>
+					</div>
+					<br />
+
+
+
+					<!--<div>-->
+						<!--<button type="button" class="am-btn am-btn-primary am-btn-lg" ng-click='updateStatus()'>保存</button>-->
+					<!--</div>-->
+				</div>
+			<hr />
+		
+			
+			</div>
+		</div>
+		

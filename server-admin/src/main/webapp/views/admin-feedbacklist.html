@@ -1,0 +1,52 @@
+
+			<!-- content start -->
+
+				<div class="am-cf am-padding">
+					<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户反馈</strong></div>
+				</div>
+				<hr />
+				<div class="am-g" ng-controller="feedbacklistController">
+					<div class="am-u-sm-12">
+						<form class="am-form">
+							<table class="am-table am-table-striped am-table-hover table-main">
+								<thead>
+									<tr>
+										<th class="table-id">ID</th>
+										<!--<th class="table-content">内容简介</th>-->
+										<th class="table-contact">联系方式</th>
+										<th class="table-status">状态</th>
+										<th class="table-set">操作</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat = "feedback in feedbacks">
+										
+											<td>{{feedback.feedback_id }}</td>
+											<!--<td>{{feedback.content}}</td>-->
+											<td>{{feedback.contact}}</td>
+											<td>
+												{{feedback.status}}
+											</td>
+										     <td><a href="#/admin-feedbacks/{{feedback.feedback_id}}">查看</a></td>
+									</tr>
+
+								</tbody>
+							</table>
+							<div class="am-cf" ng-model="page">
+								第 {{page}} 页
+								<div class="am-fr">
+									<ul class="am-pagination">
+										<li id = "prepage" ><a href="" ng-click="getPrePage()">«</a></li>
+										<li id = "nextpage"><a href="" ng-click="getNextPage()">»</a></li>
+									</ul>
+								</div>
+							</div>
+							<hr/>
+
+						</form>
+					</div>
+
+				</div>
+			</div>
+		
+		<!-- content end -->

@@ -1,0 +1,24 @@
+{
+  "description":"活动相关首页数据",
+  "type": "object",
+  "properties": {
+    "hot_activities":{
+      "description":"热门活动,即APP首页Banner",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "activity_id":{
+            "type":"integer"
+          }
+        }
+      }
+    },
+    "complete_activities":{
+      "type": "array"
+    },
+    "underway_activities":{
+      "type": "array"
+    }
+  }
+}

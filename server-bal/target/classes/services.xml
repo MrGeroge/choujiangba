@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task-3.1.xsd"
+        >
+       <task:annotation-driven/>
+       <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+              <property name="corePoolSize" value="20" />
+              <property name="maxPoolSize" value="40" />
+              <property name="queueCapacity" value="100" />
+       </bean>
+
+       <bean id="accountService" class="cn.choujiangba.server.bal.service.AccountServiceImpl">
+              <property name="accountDao" ref="accountDao"/>
+              <property name="accountProfileDao" ref="accountProfileDao"/>
+              <property name="deliveryAddressDao" ref="deliveryAddressDao"/>
+              <property name="accountRegisterRecordDao" ref="accountRegisterRecordDao"/>
+              <property name="transactionDao" ref="transactionDao"/>
+       </bean>
+
+       <bean id="TokenService" class="cn.choujiangba.server.bal.service.TokenServiceImpl">
+              <property name="accountAuthRecordDao" ref="accountAuthRecordDao"/>
+              <property name="accountDao" ref="accountDao"/>
+       </bean>
+       <bean id="AdminService" class="cn.choujiangba.server.bal.service.AdminServiceImpl">
+              <property name="adminAccountDao" ref="adminAccountDao"/>
+       </bean>
+       <bean id="FeedBackService" class="cn.choujiangba.server.bal.service.FeedBackServiceImpl">
+              <property name="feedbackDao" ref="feedbackDao"/>
+       </bean>
+
+       <bean id="itemService" class="cn.choujiangba.server.bal.service.ItemServiceImpl">
+              <property name="itemDao" ref="itemDao"/>
+              <property name="itemBaseStatisticDao" ref="itemBaseStatisticDao"/>
+              <property name="taskExecutor" ref="taskExecutor"/>
+              <property name="itemHotDao" ref="itemHotDao"/>
+              <property name="itemPurchaseStatisticDao" ref="itemPurchaseStatisticDao"/>
+              <property name="itemReplyDao" ref="itemReplyDao"/>
+              <property name="itemViewStatisticDao" ref="itemViewStatisticDao"/>
+       </bean>
+
+       <bean id="ActivityService" class="cn.choujiangba.server.bal.service.ActivityServiceImpl">
+              <property name="accountProfileDao" ref="accountProfileDao"/>
+              <property name="itemDao" ref="itemDao"/>
+              <property name="activityDao" ref="activityDao"/>
+              <property name="activityCompleteDao" ref="activityCompleteDao"/>
+              <property name="activityResultDao" ref="activityResultDao"/>
+              <property name="activityUnderwayDao" ref="activityUnderwayDao"/>
+              <property name="activityJoinRecordDao" ref="activityJoinRecordDao"/>
+              <property name="itemBaseStatisticDao" ref="itemBaseStatisticDao"/>
+              <property name="itemPurchaseStatisticDao" ref="itemPurchaseStatisticDao"/>
+              <property name="taskExecutor" ref="taskExecutor"/>
+              <property name="transactionDao" ref="transactionDao"/>
+       </bean>
+
+</beans>

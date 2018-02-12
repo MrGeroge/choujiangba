@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+       <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+            <property name="corePoolSize" value="20" />
+            <property name="maxPoolSize" value="40" />
+            <property name="queueCapacity" value="100" />
+       </bean>
+
+        <bean id="rewardRequestFactory" class="cn.choujiangba.server.bal.service.reward.SimpleRewardRequestFactory">
+
+        </bean>
+
+        <bean id="rewardQuene" class="cn.choujiangba.server.bal.service.reward.RewardQuene"
+                init-method="init">
+            <property name="taskExecutor" ref="taskExecutor" />
+        </bean>
+</beans>

@@ -1,0 +1,68 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title":"item_list",
+  "description":"商品列表",
+  "type": "object",
+  "properties": {
+    "content":{
+      "description":"返回结果",
+      "type":"string",
+      "pattern":"/success|failed/"
+    },
+
+    "message":{
+      "description":"返回信息",
+      "type":"string"
+    },
+
+    "auth":{
+      "description":"登录成功返回的信息",
+      "type":"object",
+      "properties":{
+        "expire_in":{
+          "description":"token过期时间",
+          "type":"integer"
+        },
+        "token":{
+          "description":"用户验证参数",
+          "type":"string"
+        }
+      },
+      "required":["expire_in","token"]
+    },
+
+    "user_detail":{
+      "description":"用户详细信息",
+      "type":"object",
+      "properties":{
+        "userId":{
+          "description":"用户ID",
+          "type":"integer"
+        },
+        "nickname":{
+          "description":"用户昵称",
+          "type":"string"
+        },
+        "avatar_url":{
+          "description":"用户头像",
+          "type":"string"
+        },
+        "balance":{
+          "description":"用户余额",
+          "type":"number"
+        },
+        "gender":{
+          "description":"用户性别",
+          "type":"string"
+        }
+      },
+      "required":["userId",
+            "nickname",
+            "avatar_url",
+            "balance",
+            "gender"
+      ]
+    }
+  },
+  "required":["result","message"]
+}

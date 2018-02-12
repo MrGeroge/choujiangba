@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app='userModule' xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>后台管理</title>
+  <meta name="keywords" content="用户管理"/>
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" th:href="@{${Host}+'/assets/css/amazeui.min.css'}" href="../assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href=".../assets/css/admin.css" th:href="@{${Host}+'/assets/css/admin.css'}"/>
+  <link rel="stylesheet" href=".../assets/css/jquery.tag-editor.css" th:href="@{${Host}+'/assets/css/jquery.tag-editor.css'}"/>
+  <!--富文本编辑-->
+  <link href=".../assets/css/font-awesome.min.css" th:href="@{${Host}+'/assets/css/font-awesome.min.css'}" rel="stylesheet" type="text/css"/>
+	<link href=".../assets/css/froala_editor.min.css" th:href="@{${Host}+'/assets/css/froala_editor.min.css'}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+
+<header class="am-topbar admin-header">
+  <div class="am-topbar-brand">
+    <strong>0元购</strong> <small>后台管理</small>
+  </div>
+
+  <button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only" data-am-collapse="{target: '#topbar-collapse'}"><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <!--<div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+
+    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+          <span class="am-icon-users"></span> 管理员 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          <li><a href="#"><span class="am-icon-user"></span> 资料</a></li>
+          <li><a href="#"><span class="am-icon-cog"></span> 设置</a></li>
+          <li><a href="#"><span class="am-icon-power-off"></span> 退出</a></li>
+        </ul>
+      </li>
+     
+    </ul>
+  </div>-->
+</header>
+
+<div class="am-cf admin-main">
+  <!-- sidebar start -->
+  <div class="admin-sidebar am-offcanvas" id="admin-offcanvas">
+    <div class="am-offcanvas-bar admin-offcanvas-bar">
+      <ul class="am-list admin-sidebar-list"> 	
+        <li><a href="#/admin-user"><span class="am-icon-user"></span> 账户管理</a></li>
+        <li><a href="#/admin-goods"><span class="am-icon-table"></span> 商品管理</a></li>
+        <li><a href="#/admin-feedback"><span class="am-icon-pencil-square-o"></span> 用户反馈</a></li>
+          <li><a href="#/admin-activitylist"><span class="am-icon-list-ul"></span> 活动管理</a></li>
+          <li><a href="#/admin-hotgoodslist"><span class="am-icon-bell-o" ></span> 热销商品</a></li>
+          <br />
+      </ul>
+    </div>
+  </div>
+  <!-- sidebar end -->
+
+
+  <!-- content start -->
+  <div class="admin-content" ng-view=''>
+    </div>
+  <!-- content end -->
+
+</div>
+
+
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--<script src="js/jquery.min.js"></script>-->
+<!--<![endif]-->
+<script src="../assets/js/jquery.min.js" th:src="@{${Host}+'/assets/js/jquery.min.js'}"></script>
+
+<!--图片上传-->
+<script src="../assets/js/ajaxupload.js"  th:src="@{${Host}+'/assets/js/ajaxupload.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="../assets/js/amazeui.min.js" th:src="@{${Host}+'/assets/js/amazeui.min.js'}" ></script>
+<!--图表-->
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script src="../assets/js/angular.min.js"  th:src="@{${Host}+'/assets/js/angular.min.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="../assets/js/user/admin-user.js"  th:src="@{${Host}+'/assets/js/user/admin-user.js'}" type="text/javascript" charset="utf-8"></script>
+<script src="../assets/js/angular-route.min.js" th:src="@{${Host}+'/assets/js/angular-route.min.js'}"  type="text/javascript" charset="utf-8"></script>
+<!--标签-->
+<script src="../assets/js/jquery.tag-editor.min.js" th:src="@{${Host}+'/assets/js/jquery.tag-editor.min.js'}" type="text/javascript" charset="utf-8"></script>
+<!--富文本编辑-->
+  <script src="../assets/js/froala_editor.min.js" th:src="@{${Host}+'/assets/js/froala_editor.min.js'}" ></script>
+  <script src="../assets/js/plugins/lists.min.js" th:src="@{${Host}+'/assets/js/plugins/lists.min.js'}" ></script>
+  <script src="../assets/js/plugins/colors.min.js" th:src="@{${Host}+'/assets/js/plugins/colors.min.js'}" ></script>
+  <script src="../assets/js/plugins/media_manager.min.js" th:src="@{${Host}+'/assets/js/plugins/media_manager.min.js'}" ></script>
+  <script src="../assets/js/plugins/font_family.min.js" th:src="@{${Host}+'/assets/js/plugins/font_family.min.js'}" ></script>
+  <script src="../assets/js/plugins/font_size.min.js" th:src="@{${Host}+'/assets/js/plugins/font_size.min.js'}"></script>
+  <script src="../assets/js/plugins/block_styles.min.js" th:src="@{${Host}+'/assets/js/plugins/block_styles.min.js'}"></script>
+
+
+
+</body>
+</html>
